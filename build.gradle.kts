@@ -76,6 +76,7 @@ modrinth {
     dependencies {
         required.project("Ha28R6CL")
         optional.project("mOgUt4GM")
+        required.project("9s6osm5g")
     }
 
     uploadFile.set(tasks.remapJar.get())

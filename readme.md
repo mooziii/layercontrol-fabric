@@ -1,5 +1,3 @@
-![crappy icon](https://i.imgur.com/xy4Ttt2.png)
-
 # Layer Control
 
 Layer Control is a fabric mod that allows you to control which layers should be rendered.

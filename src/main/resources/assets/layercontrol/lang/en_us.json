@@ -4,6 +4,7 @@
   "layercontrol.option.renderOnOthers": "Apply to others",
   "layercontrol.option.parrotVariantLeft": "Left Parrot Variant",
   "layercontrol.option.parrotVariantRight": "Right Parrot Variant",
+  "layercontrol.option.parrotScale": "Parrot Scale",
   "layercontrol.modrinth": "Modrinth",
   "layercontrol.curseforge": "Curseforge"
 }

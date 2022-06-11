@@ -4,6 +4,7 @@
   "layercontrol.option.renderOnOthers": "Auf andere anwenden",
   "layercontrol.option.parrotVariantLeft": "Linke Papagei Variante",
   "layercontrol.option.parrotVariantRight": "Rechte Papagei Variante",
+  "layercontrol.option.parrotScale": "Papagei Größe",
   "layercontrol.modrinth": "Modrinth",
   "layercontrol.curseforge": "Curseforge"
 }

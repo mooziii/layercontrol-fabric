@@ -39,6 +39,12 @@ object ClothConfigManager {
             }
             .setDefaultValue(LayerControlConfig.DEFAULT.parrotVariantLeft)
             .build())
+        general.addEntry(entryBuilder.startFloatField(Component.translatable("layercontrol.option.parrotScale"), config?.parrotScale ?: 0.5f)
+            .setSaveConsumer {
+                config?.parrotScale = it
+            }
+            .setDefaultValue(LayerControlConfig.DEFAULT.parrotScale ?: 0.5f)
+            .build())
         general.addEntry(entryBuilder.startIntSlider(Component.translatable("layercontrol.option.parrotVariantRight"), config?.parrotVariantRight ?: 0, 0, ParrotRenderer.PARROT_LOCATIONS.size-1)
             .setSaveConsumer {
                 config?.parrotVariantRight = it

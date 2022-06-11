@@ -7,7 +7,8 @@ data class LayerControlConfig(
     val enabledLayers: MutableMap<CustomizableRenderLayer, Boolean>,
     var renderOnOthers: Boolean,
     var parrotVariantLeft: Int,
-    var parrotVariantRight: Int
+    var parrotVariantRight: Int,
+    var parrotScale: Float? = 0.5f
 ) {
 
     companion object {
@@ -15,7 +16,8 @@ data class LayerControlConfig(
             defaultLayers(),
             false,
             0,
-            0
+            0,
+            0.5f
         )
 
         private fun defaultLayers(): MutableMap<CustomizableRenderLayer, Boolean> {

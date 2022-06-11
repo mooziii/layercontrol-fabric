@@ -33,7 +33,6 @@
     }
   },
   "depends": {
-    "fabricloader": ">=0.14.7",
     "minecraft": "${mcVersion}",
     "java": ">=17",
     "fabric-language-kotlin": "*",

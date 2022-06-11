@@ -4,6 +4,7 @@ plugins {
     id("fabric-loom") version "0.12-SNAPSHOT"
     id("io.github.juuxel.loom-quiltflower") version "1.7.2"
     id("org.quiltmc.quilt-mappings-on-loom") version "4.2.0"
+    id("com.modrinth.minotaur") version "2.+"
     java
 }
 
@@ -62,4 +63,20 @@ tasks {
     compileKotlin {
         kotlinOptions.jvmTarget = "$javaVersion"
     }
+}
+
+modrinth {
+    token.set(System.getenv("MODRINTH_TOKEN"))
+    projectId.set("VP0RHYaP")
+    versionNumber.set(project.version.toString())
+    versionType.set("release")
+    gameVersions.addAll(listOf("${project.version.toString().split("mc")[1]}"))
+    loaders.add("fabric")
+    loaders.add("quilt")
+    dependencies {
+        required.project("Ha28R6CL")
+        optional.project("mOgUt4GM")
+    }
+
+    uploadFile.set(tasks.remapJar.get())
 }

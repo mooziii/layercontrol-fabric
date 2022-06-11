@@ -1,6 +1,7 @@
 # Layer Control
 
 Layer Control is a fabric mod that allows you to control which layers should be rendered.
+Open the settings via [ModMenu](https://modrinth.com/mod/modmenu) or the Skin Customization Settings.
 
 ![Environment](https://img.shields.io/badge/environment-client-1976d2?style=flat-square)
 [![ModLoader](https://img.shields.io/badge/modloader-Fabric-1976d2?style=flat-square)](https://fabricmc.net/)

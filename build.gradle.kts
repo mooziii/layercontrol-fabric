@@ -10,7 +10,7 @@ plugins {
 
 val javaVersion = 17
 group = "me.obsilabor"
-version = "1.0.0+mc1.19"
+version = "1.0.1+mc1.19"
 
 repositories {
     mavenCentral()

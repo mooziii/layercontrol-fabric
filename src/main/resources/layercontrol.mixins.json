@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.obsilabor.layercontrol.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "LivingEntityRendererMixin",
+    "PlayerRendererMixin",
+    "RenderLayerAccessor",
+    "SkinCustomizationScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

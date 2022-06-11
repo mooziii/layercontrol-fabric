@@ -1,0 +1,9 @@
+{
+  "layercontrol.config": "Configure layers",
+  "layercontrol.category.general": "General",
+  "layercontrol.option.renderOnOthers": "Apply to others",
+  "layercontrol.option.parrotVariantLeft": "Left Parrot Variant",
+  "layercontrol.option.parrotVariantRight": "Right Parrot Variant",
+  "layercontrol.modrinth": "Modrinth",
+  "layercontrol.curseforge": "Curseforge"
+}

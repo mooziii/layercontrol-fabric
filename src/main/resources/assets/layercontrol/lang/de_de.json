@@ -1,0 +1,9 @@
+{
+  "layercontrol.config": "Layer konfigurieren",
+  "layercontrol.category.general": "Generell",
+  "layercontrol.option.renderOnOthers": "Auf andere anwenden",
+  "layercontrol.option.parrotVariantLeft": "Linke Papagei Variante",
+  "layercontrol.option.parrotVariantRight": "Rechte Papagei Variante",
+  "layercontrol.modrinth": "Modrinth",
+  "layercontrol.curseforge": "Curseforge"
+}

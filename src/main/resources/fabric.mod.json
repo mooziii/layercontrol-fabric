@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "layercontrol",
+  "version": "${version}",
+  "name": "Layer Control",
+  "description": "Layer Control is a fabric mod that allows you to control which layers should be rendered.",
+  "authors": [
+    "mooziii"
+  ],
+  "contact": {
+    "sources": "https://github.com/mooziii/layercontrol-fabric"
+  },
+  "license": "MIT",
+  "icon": "assets/layercontrol/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "me.obsilabor.layercontrol.ManagerKt::init"
+    ],
+    "modmenu": [
+      "me.obsilabor.layercontrol.ModMenuImpl"
+    ]
+  },
+  "mixins": [
+    "layercontrol.mixins.json"
+  ],
+  "custom": {
+    "modmenu": {
+      "links": {
+        "layercontrol.modrinth": "https://modrinth.com/mod/layercontrol",
+        "layercontrol.curseforge": "https://www.curseforge.com/minecraft/mc-mods/layercontrol"
+      }
+    }
+  },
+  "depends": {
+    "fabricloader": ">=0.14.7",
+    "minecraft": "${mcVersion}",
+    "java": ">=17",
+    "fabric-language-kotlin": "*",
+    "cloth-config": "*"
+  },
+  "suggests": {
+    "modmenu": "*"
+  }
+}

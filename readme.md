@@ -16,3 +16,7 @@ Open the settings via [ModMenu](https://modrinth.com/mod/modmenu) or the Skin Cu
 ![ingame1](https://i.imgur.com/dDzKfbU.png)
 ![ingame2](https://i.imgur.com/hx62eOF.png)
 ![ingame3](https://i.imgur.com/guAp7ME.png)
+
+### Special Thanks
+
+To `Azztur#7022` for the lovely icon!

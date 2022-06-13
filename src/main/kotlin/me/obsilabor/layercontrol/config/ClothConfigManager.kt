@@ -53,10 +53,11 @@ object ClothConfigManager {
             .build())
         general.addEntry(entryBuilder.startFloatField(Component.translatable("layercontrol.option.bigHeadSize"), config?.bigHeadScale ?: 2f)
             .setSaveConsumer {
-                if (it > 100f)
-                    config?.bigHeadScale = 100f
-                else
-                    config?.bigHeadScale = it
+                when {
+                    it > 100f -> config?.bigHeadScale = 100f
+                    it < 1f -> config?.bigHeadScale = 1f
+                    else -> config?.bigHeadScale = it
+                }
             }
             .setDefaultValue(LayerControlConfig.DEFAULT.bigHeadScale ?: 2f)
             .build())

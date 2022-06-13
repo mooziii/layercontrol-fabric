@@ -2,6 +2,7 @@ package me.obsilabor.layercontrol.render;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.blaze3d.vertex.PoseStack;
+import me.obsilabor.layercontrol.config.ClothConfigManager;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HeadedModel;
 import net.minecraft.client.model.SkullModelBase;
@@ -40,10 +41,11 @@ public class CustomBigHeadLayer<T extends LivingEntity, M extends EntityModel<T>
 
     public void render(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, T livingEntity, float f, float g, float h, float j, float k, float l) {
         if(livingEntity instanceof Player) {
+            float multiplier = ClothConfigManager.INSTANCE.getConfig().getBigHeadScale();
             poseStack.pushPose();
             poseStack.scale(this.scaleX, this.scaleY, this.scaleZ);
             this.getParentModel().getHead().translateAndRotate(poseStack);
-            poseStack.scale(1.1875F * 2f, -1.1875F * 2F, -1.1875F * 2F);
+            poseStack.scale(1.1875F * multiplier, -1.1875F * multiplier, -1.1875F * multiplier);
             GameProfile gameProfile = ((Player) livingEntity).getGameProfile();
             poseStack.translate(-0.5, 0.0, -0.5);
             SkullBlock.Type type = SkullBlock.Types.PLAYER;

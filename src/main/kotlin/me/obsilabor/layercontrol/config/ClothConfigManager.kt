@@ -51,6 +51,15 @@ object ClothConfigManager {
             }
             .setDefaultValue(LayerControlConfig.DEFAULT.parrotVariantRight)
             .build())
+        general.addEntry(entryBuilder.startFloatField(Component.translatable("layercontrol.option.bigHeadSize"), config?.bigHeadScale ?: 2f)
+            .setSaveConsumer {
+                if (it > 100f)
+                    config?.bigHeadScale = 100f
+                else
+                    config?.bigHeadScale = it
+            }
+            .setDefaultValue(LayerControlConfig.DEFAULT.bigHeadScale ?: 2f)
+            .build())
         CustomizableRenderLayer.values().forEach { layer ->
             (if(layer.mojang) mojangLayers else customLayers).addEntry(entryBuilder.startBooleanToggle(Component.nullToEmpty(layer.name), config?.enabledLayers?.get(layer) ?: layer.mojang)
                 .setSaveConsumer {

@@ -8,7 +8,8 @@ data class LayerControlConfig(
     var renderOnOthers: Boolean,
     var parrotVariantLeft: Int,
     var parrotVariantRight: Int,
-    var parrotScale: Float? = 0.5f
+    var parrotScale: Float? = 0.5f,
+    var bigHeadScale: Float? = 2f
 ) {
 
     companion object {
@@ -17,7 +18,8 @@ data class LayerControlConfig(
             false,
             0,
             0,
-            0.5f
+            0.5f,
+            2f
         )
 
         private fun defaultLayers(): MutableMap<CustomizableRenderLayer, Boolean> {

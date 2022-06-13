@@ -5,6 +5,7 @@
   "layercontrol.option.parrotVariantLeft": "Left Parrot Variant",
   "layercontrol.option.parrotVariantRight": "Right Parrot Variant",
   "layercontrol.option.parrotScale": "Parrot Scale",
+  "layercontrol.option.bigHeadSize": "BigHead Scale",
   "layercontrol.modrinth": "Modrinth",
   "layercontrol.curseforge": "Curseforge"
 }

@@ -5,6 +5,7 @@
   "layercontrol.option.parrotVariantLeft": "Linke Papagei Variante",
   "layercontrol.option.parrotVariantRight": "Rechte Papagei Variante",
   "layercontrol.option.parrotScale": "Papagei Größe",
+  "layercontrol.option.bigHeadSize": "Kopf Größe",
   "layercontrol.modrinth": "Modrinth",
   "layercontrol.curseforge": "Curseforge"
 }

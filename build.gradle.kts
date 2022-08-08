@@ -29,10 +29,7 @@ dependencies {
     api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     // fabric
     minecraft("com.mojang:minecraft:1.19.2")
-    mappings(loom.layered {
-        addLayer(quiltMappings.mappings("org.quiltmc:quilt-mappings:1.19.2+build.1:v2"))
-        officialMojangMappings()
-    })
+    mappings(loom.officialMojangMappings())
     modImplementation("net.fabricmc:fabric-loader:0.14.9")
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.59.0+1.19.2")
     modImplementation("net.fabricmc:fabric-language-kotlin:1.8.2+kotlin.1.7.10")

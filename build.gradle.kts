@@ -3,19 +3,19 @@ import com.matthewprenger.cursegradle.CurseRelation
 import com.matthewprenger.cursegradle.Options
 
 plugins {
-    kotlin("jvm") version "1.7.0"
-    kotlin("plugin.serialization") version "1.7.0"
-    id("fabric-loom") version "0.12-SNAPSHOT"
-    id("io.github.juuxel.loom-quiltflower") version "1.7.2"
-    id("org.quiltmc.quilt-mappings-on-loom") version "4.2.0"
+    kotlin("jvm") version "1.7.10"
+    kotlin("plugin.serialization") version "1.7.10"
+    id("fabric-loom") version "0.13-SNAPSHOT"
+    id("io.github.juuxel.loom-quiltflower") version "1.7.3"
+    id("org.quiltmc.quilt-mappings-on-loom") version "4.2.1"
     id("com.modrinth.minotaur") version "2.+"
     id("com.matthewprenger.cursegradle") version "1.4.0"
-    java
+    id("java")
 }
 
 val javaVersion = 17
 group = "me.obsilabor"
-version = "1.0.2+mc1.19"
+version = "1.0.3+mc1.19.2"
 
 repositories {
     mavenCentral()
@@ -28,17 +28,19 @@ dependencies {
     implementation(kotlin("stdlib"))
     api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
     // fabric
-    minecraft("com.mojang:minecraft:1.19")
+    minecraft("com.mojang:minecraft:1.19.2")
     mappings(loom.layered {
-        addLayer(quiltMappings.mappings("org.quiltmc:quilt-mappings:1.19+build.1:v2"))
+        addLayer(quiltMappings.mappings("org.quiltmc:quilt-mappings:1.19.2+build.1:v2"))
         officialMojangMappings()
     })
-    modImplementation("net.fabricmc:fabric-loader:0.14.7")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:0.55.3+1.19")
-    modImplementation("net.fabricmc:fabric-language-kotlin:1.8.0+kotlin.1.7.0")
+    modImplementation("net.fabricmc:fabric-loader:0.14.9")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:0.59.0+1.19.2")
+    modImplementation("net.fabricmc:fabric-language-kotlin:1.8.2+kotlin.1.7.10")
     // modmenu & clothconfig
-    modApi("com.terraformersmc:modmenu:4.0.0")
-    modApi("me.shedaniel.cloth:cloth-config-fabric:7.0.65") {
+    modApi("com.terraformersmc:modmenu:4.0.6") {
+        exclude("net.fabricmc.fabric-api")
+    }
+    modApi("me.shedaniel.cloth:cloth-config-fabric:8.0.75") {
         exclude("net.fabricmc.fabric-api")
     }
 }
@@ -51,8 +53,7 @@ kotlin.sourceSets.all {
 tasks {
     processResources {
         val props = mapOf(
-            "version" to project.version,
-            "mcVersion" to "${project.version.toString().split("mc")[1]}"
+            "version" to project.version
         )
 
         inputs.properties(props)
@@ -81,7 +82,7 @@ modrinth {
     projectId.set("VP0RHYaP")
     versionNumber.set(project.version.toString())
     versionType.set("release")
-    gameVersions.addAll(listOf("${project.version.toString().split("mc")[1]}"))
+    gameVersions.addAll(listOf("1.19", "1.19.1", "1.19.2"))
     loaders.add("fabric")
     loaders.add("quilt")
     dependencies {
@@ -100,8 +101,8 @@ curseforge {
 
         id = "632589"
         releaseType = "release"
-        addGameVersion("${project.version.toString().split("mc")[1]}")
-        addGameVersion("Java 17")
+        addGameVersion("1.19.1")
+        addGameVersion("1.19.2")
         addGameVersion("Fabric")
         addGameVersion("Quilt")
 

@@ -23,7 +23,7 @@ public abstract class LivingEntityRendererMixin<T extends LivingEntity, M extend
             method = "render(Lnet/minecraft/world/entity/LivingEntity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V",
             at = @At("STORE")
     )
-    private RenderLayer test(RenderLayer renderLayer, LivingEntity livingEntity) {
+    private RenderLayer cancelRendering(RenderLayer renderLayer, LivingEntity livingEntity) {
         if(CustomizableRenderLayer.Companion.getTargets().contains(renderLayer.getClass())) {
             if(!CustomizableRenderLayer.Companion.getForRenderLayer(renderLayer).shouldRender(livingEntity.getUUID())) {
                 return new EmptyRenderLayer(((RenderLayerAccessor) renderLayer).getParentRenderer());

@@ -28,5 +28,4 @@ public abstract class PlayerRendererMixin extends LivingEntityRenderer<AbstractC
         this.addLayer(new CustomLeftParrotLayer<>(this, context.getModelSet()));
         this.addLayer(new CustomRightParrotLayer<>(this, context.getModelSet()));
     }
-
 }

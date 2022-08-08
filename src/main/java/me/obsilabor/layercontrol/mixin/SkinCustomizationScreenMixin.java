@@ -21,5 +21,4 @@ public abstract class SkinCustomizationScreenMixin extends Screen {
     private void addCustomButton(CallbackInfo ci) {
         addRenderableWidget(new Button(0, 0, 200, 20, Component.translatable("layercontrol.config"), (button) -> this.minecraft.setScreen(ClothConfigManager.INSTANCE.buildScreen())));
     }
-
 }

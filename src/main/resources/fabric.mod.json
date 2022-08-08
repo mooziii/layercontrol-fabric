@@ -33,7 +33,7 @@
     }
   },
   "depends": {
-    "minecraft": "${mcVersion}",
+    "minecraft": ">=1.19",
     "java": ">=17",
     "fabric-language-kotlin": "*",
     "cloth-config": "*"

@@ -11,7 +11,6 @@ data class LayerControlConfig(
     var parrotScale: Float? = 0.5f,
     var bigHeadScale: Float? = 2f
 ) {
-
     companion object {
         val DEFAULT = LayerControlConfig(
             defaultLayers(),
@@ -30,5 +29,4 @@ data class LayerControlConfig(
             return map
         }
     }
-
 }

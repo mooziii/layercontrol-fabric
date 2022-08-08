@@ -10,5 +10,4 @@ public interface RenderLayerAccessor {
 
     @Accessor("renderer")
     RenderLayerParent getParentRenderer();
-
 }

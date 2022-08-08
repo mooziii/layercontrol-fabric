@@ -87,5 +87,4 @@ object ClothConfigManager {
             config = json.decodeFromString(configFile.readText())
         }
     }
-
 }

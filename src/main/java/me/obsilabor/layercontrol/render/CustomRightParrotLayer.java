@@ -27,11 +27,11 @@ public class CustomRightParrotLayer<T extends Player> extends RenderLayer<T, Pla
     }
 
     private void render(PoseStack matrices, MultiBufferSource vertexConsumers, int light, T player, float limbAngle, float limbDistance, float headYaw, float headPitch, boolean leftShoulder) {
-        float multiplier = ClothConfigManager.INSTANCE.getConfig().getParrotScale();
+        float multiplier = ClothConfigManager.INSTANCE.getConfigFor(player.getUUID()).getParrotScale();
         matrices.pushPose();
         matrices.translate(leftShoulder ? 0.4000000059604645 : -0.4000000059604645, player.isCrouching() ? -1.2999999523162842 * multiplier: -1.5 * multiplier, 0.0);
         matrices.scale(multiplier, multiplier, multiplier);
-        VertexConsumer vertexConsumer = vertexConsumers.getBuffer(this.model.renderType(ParrotRenderer.PARROT_LOCATIONS[ClothConfigManager.INSTANCE.getConfig().getParrotVariantRight()]));
+        VertexConsumer vertexConsumer = vertexConsumers.getBuffer(this.model.renderType(ParrotRenderer.PARROT_LOCATIONS[ClothConfigManager.INSTANCE.getConfigFor(player.getUUID()).getParrotVariantRight()]));
         this.model.renderOnShoulder(matrices, vertexConsumer, light, OverlayTexture.NO_OVERLAY, limbAngle, limbDistance, headYaw, headPitch, player.tickCount);
         matrices.popPose();
     }

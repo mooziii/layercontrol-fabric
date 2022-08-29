@@ -4,11 +4,15 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import me.obsilabor.layercontrol.json
 import me.obsilabor.layercontrol.minecraft
+import me.obsilabor.layercontrol.networking.Packets
 import me.shedaniel.clothconfig2.api.ConfigBuilder
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs
 import net.minecraft.client.gui.screens.Screen
 import net.minecraft.client.renderer.entity.ParrotRenderer
 import net.minecraft.network.chat.Component
 import java.io.File
+import java.util.UUID
 
 object ClothConfigManager {
 
@@ -21,6 +25,7 @@ object ClothConfigManager {
             .setParentScreen(minecraft.screen)
             .setTitle(Component.translatable("layercontrol.config"))
             .setSavingRunnable {
+                ClientPlayNetworking.send(Packets.I_CHANGED, PacketByteBufs.empty())
                 saveConfigToFile()
             }
         val general = builder.getOrCreateCategory(Component.translatable("layercontrol.category.general"))
@@ -61,6 +66,18 @@ object ClothConfigManager {
             }
             .setDefaultValue(LayerControlConfig.DEFAULT.bigHeadScale ?: 2f)
             .build())
+        general.addEntry(entryBuilder.startBooleanToggle(Component.translatable("layercontrol.option.renderMyConfigOnOthers"), config?.renderMyConfigOnOthers ?: true)
+            .setSaveConsumer {
+                config?.renderMyConfigOnOthers = it
+            }
+            .setDefaultValue(LayerControlConfig.DEFAULT.renderMyConfigOnOthers!!)
+            .build())
+        general.addEntry(entryBuilder.startBooleanToggle(Component.translatable("layercontrol.option.shareWithOthers"), config?.shareWithOthers ?: true)
+            .setSaveConsumer {
+                config?.shareWithOthers = it
+            }
+            .setDefaultValue(LayerControlConfig.DEFAULT.shareWithOthers!!)
+            .build())
         CustomizableRenderLayer.values().forEach { layer ->
             (if(layer.mojang) mojangLayers else customLayers).addEntry(entryBuilder.startBooleanToggle(Component.nullToEmpty(layer.name), config?.enabledLayers?.get(layer) ?: layer.mojang)
                 .setSaveConsumer {
@@ -86,5 +103,31 @@ object ClothConfigManager {
         runCatching {
             config = json.decodeFromString(configFile.readText())
         }
+    }
+
+    var CONFIGS = mutableSetOf<SomehowMapsDontWork>()
+
+    fun getConfigFor(uuid: UUID): LayerControlConfig {
+        if (uuid == minecraft.player?.uuid) {
+            return this.config ?: throw RuntimeException("Config is null")
+        }
+        if (CONFIGS.filter { it.uuid == uuid }.isEmpty()) {
+            ClientPlayNetworking.send(Packets.I_WANT, PacketByteBufs.create().writeUUID(uuid))
+        }
+
+        val cfg = CONFIGS.firstOrNull { it.uuid == uuid }
+        if (cfg == null) {
+            if (this.config?.renderMyConfigOnOthers == true) {
+                return this.config ?: throw RuntimeException("Config is null")
+            } else {
+                return LayerControlConfig.DEFAULT
+            }
+        } else {
+            return cfg.config
+        }
+    }
+
+    fun clearConfigs() {
+        CONFIGS.clear()
     }
 }

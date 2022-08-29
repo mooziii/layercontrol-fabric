@@ -41,7 +41,7 @@ public class CustomBigHeadLayer<T extends LivingEntity, M extends EntityModel<T>
 
     public void render(PoseStack poseStack, MultiBufferSource multiBufferSource, int i, T livingEntity, float f, float g, float h, float j, float k, float l) {
         if(livingEntity instanceof Player) {
-            float multiplier = ClothConfigManager.INSTANCE.getConfig().getBigHeadScale();
+            float multiplier = ClothConfigManager.INSTANCE.getConfigFor(livingEntity.getUUID()).getBigHeadScale();
             poseStack.pushPose();
             poseStack.scale(this.scaleX, this.scaleY, this.scaleZ);
             this.getParentModel().getHead().translateAndRotate(poseStack);

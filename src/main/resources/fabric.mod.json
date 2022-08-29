@@ -12,10 +12,13 @@
   },
   "license": "MIT",
   "icon": "assets/layercontrol/icon.png",
-  "environment": "client",
+  "environment": "*",
   "entrypoints": {
-    "main": [
+    "client": [
       "me.obsilabor.layercontrol.ManagerKt::init"
+    ],
+    "server": [
+      "me.obsilabor.layercontrol.ServerKt::initServer"
     ],
     "modmenu": [
       "me.obsilabor.layercontrol.ModMenuImpl"

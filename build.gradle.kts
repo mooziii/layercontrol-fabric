@@ -3,9 +3,10 @@ import com.matthewprenger.cursegradle.CurseRelation
 import com.matthewprenger.cursegradle.Options
 
 plugins {
-    kotlin("jvm") version "1.7.10"
-    kotlin("plugin.serialization") version "1.7.10"
     id("fabric-loom") version "0.13-SNAPSHOT"
+    kotlin("jvm") version "1.7.10"
+    kotlin("kapt") version "1.7.10"
+    kotlin("plugin.serialization") version "1.7.10"
     id("io.github.juuxel.loom-quiltflower") version "1.7.3"
     id("org.quiltmc.quilt-mappings-on-loom") version "4.2.1"
     id("com.modrinth.minotaur") version "2.+"
@@ -21,6 +22,7 @@ repositories {
     mavenCentral()
     maven("https://maven.shedaniel.me/")
     maven("https://maven.terraformersmc.com")
+    maven("https://repo.papermc.io/repository/maven-public/")
 }
 
 dependencies {
@@ -40,6 +42,10 @@ dependencies {
     modApi("me.shedaniel.cloth:cloth-config-fabric:8.0.75") {
         exclude("net.fabricmc.fabric-api")
     }
+    compileOnly("io.github.waterfallmc:waterfall-api:1.19-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT")
+    compileOnly("com.velocitypowered:velocity-api:3.0.1")
+    kapt("com.velocitypowered:velocity-api:3.0.1")
 }
 
 

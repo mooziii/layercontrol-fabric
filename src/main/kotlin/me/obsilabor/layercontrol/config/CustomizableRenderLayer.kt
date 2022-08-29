@@ -47,7 +47,7 @@ enum class CustomizableRenderLayer(val clazz: Class<*>, var mojang: Boolean = tr
 
     fun shouldRender(entityUniqueId: UUID): Boolean {
         return if(ClothConfigManager.config?.renderOnOthers == true) {
-            isEnabled
+            isEnabledFor(entityUniqueId)
         } else {
             if(entityUniqueId == minecraft.player?.uuid) {
                 isEnabled
@@ -59,4 +59,11 @@ enum class CustomizableRenderLayer(val clazz: Class<*>, var mojang: Boolean = tr
 
     val isEnabled: Boolean
     get() = ClothConfigManager.config?.enabledLayers?.get(this) ?: mojang
+
+    fun isEnabledFor(uuid: UUID): Boolean {
+        if (minecraft.player?.uuid == uuid) {
+            return isEnabled
+        }
+        return ClothConfigManager.getConfigFor(uuid).enabledLayers[this] ?: mojang
+    }
 }

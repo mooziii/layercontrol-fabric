@@ -9,7 +9,9 @@ data class LayerControlConfig(
     var parrotVariantLeft: Int,
     var parrotVariantRight: Int,
     var parrotScale: Float? = 0.5f,
-    var bigHeadScale: Float? = 2f
+    var bigHeadScale: Float? = 2f,
+    var shareWithOthers: Boolean? = true,
+    var renderMyConfigOnOthers: Boolean? = false
 ) {
     companion object {
         val DEFAULT = LayerControlConfig(
@@ -18,7 +20,9 @@ data class LayerControlConfig(
             0,
             0,
             0.5f,
-            2f
+            2f,
+            true,
+            false
         )
 
         private fun defaultLayers(): MutableMap<CustomizableRenderLayer, Boolean> {

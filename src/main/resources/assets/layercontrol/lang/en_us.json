@@ -6,6 +6,8 @@
   "layercontrol.option.parrotVariantRight": "Right Parrot Variant",
   "layercontrol.option.parrotScale": "Parrot Scale",
   "layercontrol.option.bigHeadSize": "BigHead Scale",
+  "layercontrol.option.shareWithOthers": "Share my config with others",
+  "layercontrol.option.renderMyConfigOnOthers": "Use my config as fallback for others",
   "layercontrol.modrinth": "Modrinth",
   "layercontrol.curseforge": "Curseforge"
 }
